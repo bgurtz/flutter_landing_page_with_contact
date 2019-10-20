@@ -20,7 +20,16 @@ const Home({Key key}) : super(key: key);
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.amber[200],
-      
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            //Image.asset("assets/images/bg.jpg"),
+            CircleAvatar(
+              backgroundImage: AssetImage("assets/images/bg.jpg"),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
