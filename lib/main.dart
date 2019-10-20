@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:landing_page_with_contact/widgets/info_card.dart';
+
+const url = "http://www.briangurtz.com";
+const email = "bgurtz@gmail.com";
+const phone = "5734339481";
+const location = "College Station, Texas";
 
 void main() => runApp(MyApp());
 
@@ -121,28 +127,35 @@ const Home({Key key}) : super(key: key);
             
             // The card below is the email
 
-            Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-              elevation: 18.0,
-              color: Colors.white,
-              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
-              child: ListTile(
-                leading: Icon(
-                  Icons.email,
-                  color: Colors.lightBlue,
-                ),
+              // We have refactoerd the eamil Card into a reusable widget on the " info_card.dart "
+            
+            // GestureDetector(
+            //   onTap: () {
+            //     print("email")
+            //   },
+            //   child: Card(
+            //     shape: RoundedRectangleBorder(
+            //       borderRadius: BorderRadius.circular(20.0),
+            //     ),
+            //     elevation: 18.0,
+            //     color: Colors.white,
+            //     margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+            //     child: ListTile(
+            //       leading: Icon(
+            //         Icons.email,
+            //         color: Colors.lightBlue,
+            //       ),
 
-                title: Text("bgurtz@gmail.com",
-                  style: TextStyle(
-                    fontFamily: 'Source Sans Pro',
-                    fontSize: 20.0,
-                    color: Colors.lightBlue.shade900,
-                  ),
-                ),
-              ),
-            ),
+            //       title: Text("bgurtz@gmail.com",
+            //         style: TextStyle(
+            //           fontFamily: 'Source Sans Pro',
+            //           fontSize: 20.0,
+            //           color: Colors.lightBlue.shade900,
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
 
           ],
         ),
