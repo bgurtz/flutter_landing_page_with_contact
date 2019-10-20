@@ -4,7 +4,7 @@ import 'package:url_launcher/url_launcher.dart' as launcher;
 
 const url = "http://briangurtz.com";
 const email = "bgurtz@gmail.com";
-const phone = "573-433-9481";
+const phone = "573 433 9481";
 const location = "College Station, Texas";
 
 void main() => runApp(MyApp());
@@ -21,7 +21,29 @@ home: Home(),
 }
 
 class Home extends StatelessWidget {
-const Home({Key key}) : super(key: key);
+  // Built show dialog box for the ' Phone Call '
+  // We called the ' _showDialog '  in our ' if ' statment on the phone card.
+  void _showDialog(BuildContext context, {String title, String msg}) {
+    final dialog = AlertDialog(
+      title: Text(title),
+      content: Text(msg),
+      actions: <Widget>[
+        RaisedButton(
+          color: Colors.lightBlue,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text(
+            'Close',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ),
+      ],
+    );
+    showDialog(context: context, builder: (x) => dialog);
+  }
 
   // the Scaffold widgets is used below to build the avatar image.
 
@@ -75,25 +97,50 @@ const Home({Key key}) : super(key: key);
             InfoCard(
               text: phone,
               icon: Icons.phone,
-              onPressed: () {
-                print("Phone");
+              onPressed: () async {
+                String removeSpaceFromPhoneNumber = phone.replaceAll(new RegExp(r"\s+\b|\b\s"), "");
+                final phoneCall = 'tel:$removeSpaceFromPhoneNumber';
+
+                if (await launcher.canLaunch(phoneCall)) {
+                  await launcher.launch(phoneCall);
+                } else {
+                  _showDialog(
+                    context,
+                    title: 'Sorry',
+                    msg: 'Phone number can not be called. Please try again!',
+                  );
+                }
               },
             ),
 
+
+            // This card is our send email, notice how the email address has to loo
+            // notice how we called our function ' emailAddress ' 
+            // adding the pop up / showDialog for the email.
             InfoCard(
               text: email,
               icon: Icons.email,
-              onPressed: () {
-                print("email");
+              onPressed: () async {
+                final emailAddress = 'mailto:bgurtz@gmail.com';
+                if (await launcher.canLaunch(emailAddress)) {
+                  await launcher.launch(emailAddress);
+                } else {
+                  _showDialog(
+                    context,
+                    title: 'Sorry',
+                    msg: 'Enail is not currently working. Please try again!',
+                  );
+                }
               },
             ),
 
-            // On the email I replaced the call text: text
+            // On the website I replaced the ' text: url '
             // with a text string to make it dispaly the test I wanted on the card.
             // not doing this it would have displayed http://briangurtz.com
             // with url launcher you have to have teh site start with http://
 
             InfoCard(
+              // text: url,
               text: ("www.BrianGurtz.com"),
               icon: Icons.language,
               onPressed: () async {
