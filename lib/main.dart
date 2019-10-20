@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:landing_page_with_contact/widgets/info_card.dart';
 
-const url = "http://www.briangurtz.com";
+const url = "www.BrianGurtz.com";
 const email = "bgurtz@gmail.com";
-const phone = "5734339481";
+const phone = "573-433-9481";
 const location = "College Station, Texas";
 
 void main() => runApp(MyApp());
@@ -68,94 +68,39 @@ const Home({Key key}) : super(key: key);
               ),
             ),
 
-            // The below is how to build a card from Scratch.
-            // We have refactored the Card we have built from scratch
-            // with the Flutter Card widget, below the 
-            // commented out homemade version.  
-          
-            // Container(
-            //   color: Colors.white,
-            //   padding: EdgeInsets.all(10.0),
-            //   margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
-            //   child: Row(
-            //     children: <Widget>[
-            //       Icon(
-            //         Icons.phone,
-            //         color: Colors.lightBlue,
-            //       ),
+            // Below we have used our reusable widget ' Info_Card ' and made 4 card buttons.
 
-                  // The SizedBox adds the space between the phone number and the phone Icon.
-
-            //       SizedBox(
-            //         width: 10.0,
-            //       ),
-
-            //       Text("5734339481",
-            //         style: TextStyle(color: Colors.lightBlue.shade900,
-            //           fontFamily: 'Source Sans Pro',
-            //           fontSize: 20.0,
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
-
-            // Below we are using the flutter Card widget, refactored fromt eh homemade one.
-
-            Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-              elevation: 18.0,
-              color: Colors.white,
-              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
-              child: ListTile(
-                leading: Icon(
-                  Icons.phone,
-                  color: Colors.lightBlue,
-                ),
-
-                title: Text("573-433-9481",
-                  style: TextStyle(
-                    fontFamily: 'Source Sans Pro',
-                    fontSize: 20.0,
-                    color: Colors.lightBlue.shade900,
-                  ),
-                ),
-              ),
+            InfoCard(
+              text: phone,
+              icon: Icons.phone,
+              onPressed: () {
+                print("Phone");
+              },
             ),
-            
-            // The card below is the email
 
-              // We have refactoerd the eamil Card into a reusable widget on the " info_card.dart "
-            
-            // GestureDetector(
-            //   onTap: () {
-            //     print("email")
-            //   },
-            //   child: Card(
-            //     shape: RoundedRectangleBorder(
-            //       borderRadius: BorderRadius.circular(20.0),
-            //     ),
-            //     elevation: 18.0,
-            //     color: Colors.white,
-            //     margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
-            //     child: ListTile(
-            //       leading: Icon(
-            //         Icons.email,
-            //         color: Colors.lightBlue,
-            //       ),
+            InfoCard(
+              text: email,
+              icon: Icons.email,
+              onPressed: () {
+                print("email");
+              },
+            ),
 
-            //       title: Text("bgurtz@gmail.com",
-            //         style: TextStyle(
-            //           fontFamily: 'Source Sans Pro',
-            //           fontSize: 20.0,
-            //           color: Colors.lightBlue.shade900,
-            //         ),
-            //       ),
-            //     ),
-            //   ),
-            // ),
+            InfoCard(
+              text: url,
+              icon: Icons.language,
+              onPressed: () {
+                print("Web Site");
+              },
+            ),
+
+            InfoCard(
+              text: location,
+              icon: Icons.track_changes,
+              onPressed: () {
+                print("Location");
+              },
+            ),
 
           ],
         ),
