@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:landing_page_with_contact/widgets/info_card.dart';
 import 'package:url_launcher/url_launcher.dart' as launcher;
@@ -6,6 +8,7 @@ const url = "http://briangurtz.com";
 const email = "bgurtz@gmail.com";
 const phone = "573 433 9481";
 const location = "College Station, Texas";
+const linkedin = "http://linkedin.com/in/briangurtz";
 
 void main() => runApp(MyApp());
 
@@ -135,7 +138,7 @@ class Home extends StatelessWidget {
             ),
 
             // On the website I replaced the ' text: url '
-            // with a text string to make it dispaly the test I wanted on the card.
+            // with a text string to make it dispaly the text the way I wanted on the card.
             // not doing this it would have displayed http://briangurtz.com
             // with url launcher you have to have teh site start with http://
 
@@ -147,6 +150,20 @@ class Home extends StatelessWidget {
                 //const url = "www.briangurtz.com"
                 if (await launcher.canLaunch(url)) {
                   await launcher.launch(url);
+                } else {
+                  print ('Error');
+                }
+              },
+            ),
+
+            InfoCard(
+              // text: url,
+              text: ("LinkedIn Profile"),
+              icon: Icons.language,
+              onPressed: () async {
+                //const url = "www.briangurtz.com"
+                if (await launcher.canLaunch(linkedin)) {
+                  await launcher.launch(linkedin);
                 } else {
                   print ('Error');
                 }
