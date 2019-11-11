@@ -13,7 +13,7 @@ but it is a very useful exercise and has a lot of parts to it that are used in e
 ### Getting Started
 
 This project has some really cool feature's for anyone that is learning Flutter.
-I would like to thank **Mahmud Ahsan** for making the video demonstrating the parts used in the making of the app.
+<!-- I would like to thank **Mahmud Ahsan** for making the video demonstrating the parts used in the making of the app. -->
 
 If you ' Cloane the Project ' and just want to edit it for your own use.
 You will need to add the Url_Launcher from pub.dev to your ymal file.
