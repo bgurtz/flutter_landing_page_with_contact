@@ -58,9 +58,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-   - family: Pacifico
+   - family: DancingScript
      fonts:
-       - asset: assets/fonts/Pacifico.ttf
+       - asset: assets/fonts/DancingScript-SemiBold.ttf
    - family: Source Sans Pro
      fonts:
        - asset: assets/fonts/SourceSansPro-Regular.ttf      

@@ -32,7 +32,7 @@ class Home extends StatelessWidget {
       content: Text(msg),
       actions: <Widget>[
         RaisedButton(
-          color: Colors.lightBlue,
+          color: Colors.blueGrey,
           onPressed: () {
             Navigator.pop(context);
           },
@@ -53,33 +53,38 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlue[200],
+      backgroundColor: Colors.blueGrey,
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             //Image.asset("assets/images/bg.jpg"),
             CircleAvatar(
+              radius: 60,
+              backgroundColor: Colors.white,
+              child: CircleAvatar(
               radius: 55,
               backgroundImage: AssetImage("assets/images/bg.jpg"),
+              ),
             ),
+            
 
             // Below we have built two Text widgets.
             //  We have also used custom Fonts
 
             Text("Brian Gurtz",
               style: TextStyle(
-                fontSize: 40.0,
+                fontSize: 50.0,
                 color: Colors.white,
                 //fontWeight: FontWeight.bold,
-                fontFamily: 'Pacifico',
+                fontFamily: 'DancingScript',
               ),
             ),
 
-            Text("Softwear Engineer",
+            Text("Flutter Developer",
               style: TextStyle(
-                fontSize: 30.0,
-                color: Colors.lightBlue[50],
+                fontSize: 25.0,
+                color: Colors.white70,
                 letterSpacing: 2.5,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Source Sans Pro',
@@ -87,17 +92,18 @@ class Home extends StatelessWidget {
             ),
 
             SizedBox(
-              height: 20,
+              height: 40,
               width: 200,
               child: Divider(
-                //thickness: 1.0,
-                color: Colors.lightBlue.shade700,
+                thickness: 1.0,
+                color: Colors.black,
               ),
             ),
 
             // Below we have used our reusable widget ' Info_Card ' and made 4 card buttons.
 
             InfoCard(
+              
               text: phone,
               icon: Icons.phone,
               onPressed: () async {
@@ -140,7 +146,7 @@ class Home extends StatelessWidget {
             // On the website I replaced the ' text: url '
             // with a text string to make it dispaly the text the way I wanted on the card.
             // not doing this it would have displayed http://briangurtz.com
-            // with url launcher you have to have teh site start with http://
+            // with url launcher you have to have the site start with http://
 
             InfoCard(
               // text: url,

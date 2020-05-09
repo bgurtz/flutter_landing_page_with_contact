@@ -19,19 +19,19 @@ class InfoCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20.0),
               ),
               elevation: 18.0,
-              color: Colors.white,
+              color: Colors.blueGrey[200],
               margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
               child: ListTile(
                 leading: Icon(
                   icon,
-                  color: Colors.lightBlue,
+                  color: Colors.black,
                 ),
 
                 title: Text(text,
                   style: TextStyle(
                     fontFamily: 'Source Sans Pro',
                     fontSize: 20.0,
-                    color: Colors.lightBlue.shade900,
+                    color: Colors.black,
                   ),
                 ),
               ),
